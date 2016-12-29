@@ -3,6 +3,13 @@
 import UIKit
 
 var str = "Hello, playground"
+
+let  INT_MIN = Int.min
+let  INT_MAX = Int.max
+
+
+let x1 = 10
+let x2 = 100
 // Implementing a Binary Search Tree
 //insert items and print all left and right subtree elements
 
@@ -177,6 +184,22 @@ class BinarySearchTree {
     }
 
     
+    func validateBST(rootnode : Node?,minInt: Int, maxInt : Int) -> Bool {
+        
+        if rootNode == nil {
+            return true
+        }
+        if (rootNode?.data)! > minInt &&  (rootNode?.data)! < maxInt &&
+            validateBST(rootnode: rootNode?.leftNode, minInt: minInt, maxInt: (rootNode?.data)!) &&
+            validateBST(rootnode: rootNode?.rightNode, minInt: (rootNode?.data)!, maxInt: maxInt) {
+            return true
+        }
+        
+        
+        return false
+        
+        
+    }
     
     
     
